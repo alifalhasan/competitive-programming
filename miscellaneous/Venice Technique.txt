@@ -1,0 +1,25 @@
+struct VeniceSet
+{
+    multiset<ll>mst;
+    ll waterLevel=0;
+    void Add(ll v)
+    {
+        mst.insert(v+waterLevel);
+    }
+    void Remove(ll v)
+    {
+        mst.erase(mst.find(v+waterLevel));
+    }
+    void UpdateAll(ll v)
+    {
+        waterLevel += v;
+    }
+    ll GetMin()
+    {
+        return *mst.begin()-waterLevel;
+    }
+    int size()
+    {
+        return (int)mst.size();
+    }
+};
